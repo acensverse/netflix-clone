@@ -77,10 +77,7 @@ function login() {
                 Sign up now
             </button>
         </div>
-
       </form>
-
-
     </div>
   )
 }
