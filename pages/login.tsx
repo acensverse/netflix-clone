@@ -2,7 +2,7 @@ import useAuth from "@/hooks/useAuth";
 import Head from "next/head"
 import Image from "next/image"
 import { useState } from "react"
-import { SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from 'react-hook-form';
 
 interface Inputs {
     email: string
@@ -10,8 +10,8 @@ interface Inputs {
 }
 
 function login() {
-    const[login, setLogin] = useState(false)
-    const {signIn, signUp} = useAuth()
+    const [login, setLogin] = useState(false)
+    const { signIn, signUp } = useAuth()
 
     const { register, handleSubmit, formState: { errors } } = useForm<Inputs>()
 
@@ -27,14 +27,14 @@ function login() {
   return (
     <div className="relative flex h-screen w-screen flex-col bg-black md:items-center md:justify-center md:bg-transparent">
         <Head>
-        <title> Home-Netflix </title>
-      </Head>npm install recoil
-      <Image 
-      src="https://rb.gy/p2hphi" 
-      layout="fill" 
-      className="-z-10 !hidden opacity-60 sm:!inline" 
-      objectFit="cover" alt={""}
-      />
+          <title> Netflix </title>
+        </Head>
+        <Image 
+        src="https://rb.gy/p2hphi" 
+        layout="fill" 
+        className="-z-10 !hidden opacity-60 sm:!inline" 
+        objectFit="cover" alt={""}
+        />
 
         <img
         src="https://rb.gy/ulxxee"
