@@ -6,6 +6,11 @@ import requests from '@/utils/requests'
 import { Movie } from '@/typing'
 import Head from 'next/head'
 import Rows from '@/components/Rows'
+import useAuth from '@/hooks/useAuth'
+import { useRecoilState, useRecoilValue } from 'recoil'
+import { useState } from 'react'
+import { modalState } from '@/atoms/modalAtom'
+import Modal from '@/components/Modal'
 //import { NextPage } from 'next'
 
 interface Props {
@@ -28,7 +33,14 @@ interface Props {
   topRated,
   trendingNow,
 }: Props) => {
+
+  const { loading } = useAuth()
+  const showModal = useRecoilValue(modalState)
+  // const [showModals, setShowModals] = useState(false)
+
+  if (loading) return null
   console.log(netflixOriginals)
+  
   return ( 
     <div className="relative h-screen bg-gradient-to-b lg:h-[140vh]">
       <Head>
@@ -48,7 +60,7 @@ interface Props {
           <Rows title="Documentaries" movies={documentaries} />    
         </section>
       </main>
-      {/*Model*/}
+      {showModal && <Modal />}
     </div>
         
   )
